@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>v-bind指令</title>
+        <style>
+            .active{
+                border: 1px solid red;
+            }
+        </style>
+</head>
+
+<body>
+    <!--html结构-->
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="" height="200px" >
+        <br>
+        <img :src="imgSrc" alt="" :title="imgTitle+'女神'"
+        :class="isActive?'active':''" @click="toggleActive" height="200px" >
+        <br>
+        <img :src="imgSrc" alt="" :title="imgTitle+'女神'"
+        :class="{active:isActive}" @click="toggleActive" height="200px" >
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                //http://www.itheima.com/images/logo.png
+                imgSrc:"F:\\photos\\2.jpg",
+                imgTitle:"谭松韵",
+                isActive:false
+            },
+            methods: {
+                toggleActive:function(){
+                    this.isActive = !this.isActive;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
